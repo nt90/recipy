@@ -1,0 +1,132 @@
+@import "fonts.less";
+
+body {
+
+}
+
+header {
+  width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.01) 0px 1px 5px;
+  background: rgb(255, 255, 255);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+
+  .navbar-inverse {
+    max-width: 1280px;
+    margin: 0 auto;
+    border: none;
+    background: none;
+
+      .navbar-nav {
+        li{
+          a{
+            color: #9d9d9d;
+            &:hover {
+              color: darken(#9d9d9d, 20%);
+            }
+          }
+        }
+      }
+    }
+}
+
+
+label.radio-inline, label.checkbox-inline {
+  background-color: #dcdfd4;
+  cursor: pointer;
+  font-weight: 400;
+  margin-bottom: 10px !important;
+  margin-right: 2%;
+  margin-left:0;
+  padding: 10px 10px 10px 30px;
+}
+label.radio-inline.checked, label.checkbox-inline.checked {
+  background-color: #266c8e;
+  color: #fff !important;
+  text-shadow: 1px 1px 2px #000 !important;
+}
+.checkbox-inline + .checkbox-inline, .radio-inline + .radio-inline {
+  margin-left: 0;
+}
+.columns label.radio-inline, .columns label.checkbox-inline {
+  min-width: 190px;
+  vertical-align: top;
+  width: 30%;
+}
+.additional-info-wrap {
+  display: inline-block;
+  margin: 0 2% 0 0;
+  min-width: 190px;
+  position: relative;
+  vertical-align: top;
+  width: 30%;
+}
+.additional-info-wrap label.checkbox-inline, .additional-info-wrap label.radio-inline {
+  width: 100% !important;
+}
+.additional-info-wrap .additional-info {
+  background-color: #266c8e;
+  clear: both;
+  color: #fff !important;
+  margin-top: -10px;
+  padding: 0 10px 10px;
+  text-shadow: 1px 1px 2px #000 !important;
+  width: 100%;
+}
+
+
+.ui-sortable tr {
+  cursor:pointer;
+}
+.ui-sortable tr:hover {
+  background:rgba(244,251,17,0.45);
+}label.radio-inline,
+ label.checkbox-inline,
+ label.radio,
+ label.checkbox {
+   margin-right:2%;
+   cursor:pointer;
+   font-weight:400;
+   padding:10px 10px 10px 30px;
+   background-color:#dcdfd4;
+   margin-bottom:10px!important
+ }
+label.radio-inline.checked,
+label.checkbox-inline.checked,
+label.radio.checked,
+label.checkbox.checked {
+  background-color:#266c8e;
+  color:#fff!important;
+  text-shadow:#000 1px 1px 2px!important
+}
+
+
+#wpr-recipy {
+  float: left;
+  width: 100%;
+  #cnr-recipy {
+    max-width: 500px;
+    margin: 0 auto;
+
+    article {
+      float: left;
+      width: 100%;
+
+      h1{
+        font-family: @yeseva;
+      }
+      span {
+
+        font-family: @open-sans;
+        background: #fff;
+        display: block;
+        min-height: 200px;
+        padding: 0 20px;
+        border: 1px solid #c7c9c9;
+      }
+    }
+  }
+}
+
+
+
+

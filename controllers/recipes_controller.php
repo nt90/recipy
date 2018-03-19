@@ -14,7 +14,6 @@ class RecipesController {
         // we use the given id to get the right post
         $recipe = Recipe::find($_GET['recipe_id']);
         $recipe_ingredients = RecipeIngredient::RecipeIngredients($_GET['recipe_id']);
-//print_r($recipe);
         require_once('views/recipes/show.php');
     }
 }

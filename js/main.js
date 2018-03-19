@@ -18,16 +18,5 @@ $(document).ready(function() {
     });
 
 
-    //at the ingredients page show popup with all ingrediens before start
-
-    function showPopup() {
-
-        $("#popup").show();
-
-        return showPopup();
-
-    }
-
-
 
 });

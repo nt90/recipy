@@ -9,13 +9,41 @@ class Ingredient {
         $this->ingredient_id      = $ingredient_id;
         $this->name    = $ingredient_name;
     }
-
+//Temp ingredients
     public static function all() {
         $list = [];
         $db = Db::getInstance();
-        $req = $db->query('SELECT * FROM ingredients');
+
+
+        $req = $db->query('SELECT * FROM temp_ingredients');
 
 // we create a list of Post objects from the database results
+        foreach($req->fetchAll() as $ingredient) {
+            $list[] = new Ingredient($ingredient['ingredient_id'], $ingredient['ingredient_name']);
+        }
+
+        return $list;
+
+    }
+
+    public static function NewIngredient() {
+        $db = Db::getInstance();
+        if(isset($_POST['submit'])) {
+            $ingredientNew = ($_POST['ingredientNew']);
+            echo($ingredientNew);
+
+            $query = $db->query("INSERT INTO temp_ingredients(ingredient_id,ingredient_name) SELECT ingredient_id, ingredient_name FROM ingredients WHERE ingredient_name LIKE '$ingredientNew' ");
+        }
+
+        // return $query->fetchAll();
+    }
+
+    //List of all ingredients
+
+    public static function ListIngredientsAll() {
+        $db = Db::getInstance();
+        $req = $db->query('SELECT * FROM ingredients ORDER BY ingredient_name ASC');
+
         foreach($req->fetchAll() as $ingredient) {
             $list[] = new Ingredient($ingredient['ingredient_id'], $ingredient['ingredient_name']);
         }
@@ -54,18 +82,19 @@ class sortIngredient {
         foreach ($sort_ingredients as $key => $value){
 
             extract($_POST);
+            print_r($_POST);
             if (isset($sortRecipe)) ;
 
             //We need to count if the sortRecipe array is equal to amount of ingredients the recipe has
             //How many ingredients do you need to match?
-            if(count($sortRecipe) >= 2 ) {
+            //if(count($sortRecipe) >= 2 ) {
                 if (array_key_exists($value['recipe_name'], $filtered_ingredients)) {
 
                     $filtered_ingredients[$value['recipe_name']]['ingredient_name'] .= ', ' . $value['ingredient_name'];
                 } else {
                     $filtered_ingredients[$value['recipe_name']] = array('recipe_id' => $value['recipe_id'], 'recipe_name' => $value['recipe_name'], 'ingredient_name' => $value['ingredient_name']);
                 }
-            }
+            //}
         }
         return array_values($filtered_ingredients);
     }

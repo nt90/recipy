@@ -3,6 +3,8 @@ class IngredientsController {
     public function index() {
         // we store all the posts in a variable
         $ingredients = Ingredient::all();
+        $ingredient_new = Ingredient::NewIngredient();
+        $ingredients_all = Ingredient::ListIngredientsAll();
         require_once('views/ingredients/index.php');
     }
 

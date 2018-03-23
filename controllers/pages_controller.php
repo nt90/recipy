@@ -3,6 +3,7 @@ class PagesController {
     public function home() {
         $first_name = 'Jon';
         $last_name  = 'Snow';
+        $ingredients = Ingredient::ListIngredientsAll();
         require_once('views/pages/home.php');
     }
 

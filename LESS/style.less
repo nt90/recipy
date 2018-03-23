@@ -29,78 +29,60 @@ header {
     }
 }
 
-
-label.radio-inline, label.checkbox-inline {
-  background-color: #dcdfd4;
-  cursor: pointer;
-  font-weight: 400;
-  margin-bottom: 10px !important;
-  margin-right: 2%;
-  margin-left:0;
-  padding: 10px 10px 10px 30px;
-}
-label.radio-inline.checked, label.checkbox-inline.checked {
-  background-color: #266c8e;
-  color: #fff !important;
-  text-shadow: 1px 1px 2px #000 !important;
-}
-.checkbox-inline + .checkbox-inline, .radio-inline + .radio-inline {
-  margin-left: 0;
-}
-.columns label.radio-inline, .columns label.checkbox-inline {
-  min-width: 190px;
-  vertical-align: top;
-  width: 30%;
-}
-.additional-info-wrap {
-  display: inline-block;
-  margin: 0 2% 0 0;
-  min-width: 190px;
-  position: relative;
-  vertical-align: top;
-  width: 30%;
-}
-.additional-info-wrap label.checkbox-inline, .additional-info-wrap label.radio-inline {
-  width: 100% !important;
-}
-.additional-info-wrap .additional-info {
-  background-color: #266c8e;
-  clear: both;
-  color: #fff !important;
-  margin-top: -10px;
-  padding: 0 10px 10px;
-  text-shadow: 1px 1px 2px #000 !important;
+#wpr-cover {
+  float: left;
   width: 100%;
+  min-height: 500px;
+  background: url("../img/bg-cover.jpg");
+  /* position: relative; */
+  background-attachment: fixed;
+  background-position: fixed;
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+  #cnr-center {
+    max-width: 700px;
+    min-height: 400px;
+    margin: 0 auto;
+    padding: 80px;
+
+    h1 {
+      font-family: @open-sans;
+    }
+    span {
+      display: block;
+      margin: 0 auto;
+    }
+  }
+
+  #wpr-ingredients {
+    .image-checkbox
+    {
+      cursor: pointer;
+      box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      border: 4px solid transparent;
+      outline: 0;
+    }
+
+    .image-checkbox input[type="checkbox"]
+    {
+      display: none;
+    }
+
+    .image-checkbox-checked
+    {
+      border-color: #f58723;
+    }
+  }
 }
 
 
-.ui-sortable tr {
-  cursor:pointer;
-}
-.ui-sortable tr:hover {
-  background:rgba(244,251,17,0.45);
-}label.radio-inline,
- label.checkbox-inline,
- label.radio,
- label.checkbox {
-   margin-right:2%;
-   cursor:pointer;
-   font-weight:400;
-   padding:10px 10px 10px 30px;
-   background-color:#dcdfd4;
-   margin-bottom:10px!important
- }
-label.radio-inline.checked,
-label.checkbox-inline.checked,
-label.radio.checked,
-label.checkbox.checked {
-  background-color:#266c8e;
-  color:#fff!important;
-  text-shadow:#000 1px 1px 2px!important
-}
-
-
-#wpr-recipy {
+/*#wpr-recipy {
   float: left;
   width: 100%;
   #cnr-recipy {
@@ -125,6 +107,67 @@ label.checkbox.checked {
       }
     }
   }
+}*/
+
+h1, h2, h3 {
+  font-family:@open-sans;
+}
+
+#wpr-image-recipy {
+  float:left;
+  max-width: 35%;
+  width: 100%;
+  height: 100vh;
+
+  img {
+    width:100%;
+    height:100%;
+    object-fit: cover;
+    overflow: hidden;
+  }
+}
+
+#wpr-content-recipy {
+  float:left;
+  max-width: 45%;
+  width: 100%;
+  height: 100vh;
+  padding: 20px;
+
+  ul#ingredients {
+      padding: 0;
+    li {
+      display: inline-block;
+      background: #fdc75f;
+      margin-right: 10px;
+      padding: 5px 10px;
+
+    }
+  }
+
+  #wpr-preparation-fixed {
+    float:left;
+    height: 250px;
+    width:100%;
+    background:#f00;
+
+    #content {
+      height:400px;
+      overflow:auto;
+      background:#fff;
+
+    }
+  }
+
+}
+
+#wpr-ingredients-recipy {
+  float:left;
+  max-width: 20%;
+  width: 100%;
+  height: 100vh;
+  padding: 15px;
+  background: #eeeeee;
 }
 
 

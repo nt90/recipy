@@ -9,7 +9,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Recipy</a>
+            <a class="navbar-brand" href="/recipy">Recipy</a>
         </div>
 
         <div class="collapse navbar-collapse js-navbar-collapse">

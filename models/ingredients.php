@@ -42,7 +42,7 @@ class Ingredient {
 
     public static function ListIngredientsAll() {
         $db = Db::getInstance();
-        $req = $db->query('SELECT * FROM ingredients ORDER BY ingredient_name ASC');
+        $req = $db->query('SELECT * FROM ingredients ORDER BY RAND() LIMIT 4');
 
         foreach($req->fetchAll() as $ingredient) {
             $list[] = new Ingredient($ingredient['ingredient_id'], $ingredient['ingredient_name']);

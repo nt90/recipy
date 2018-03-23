@@ -14,7 +14,6 @@
     <div class="form-group">
         <div class="col-md-10 columns">
 
-            <form name="form1" id="search_form" method="post" action="" />
             <ul>
 
                 <?php foreach($ingredients as $ingredient_name) { ?>
@@ -27,11 +26,11 @@
                 <?php } ?>
 
             </ul>
-            </form>
+
         </div>
     </div>
 
 </form>
 
 
-<div id="sort_rang_result"></div>
+<div id="wpr-result-recipes"></div>

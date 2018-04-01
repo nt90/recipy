@@ -6,11 +6,13 @@ class Recipe {
     //public $recipe_name;
     //public $description;
 
-    public function __construct($recipe_id, $recipe_name, $description, $instructions) {
+    public function __construct($recipe_id, $recipe_name, $description, $instructions, $ingredients, $image_url) {
         $this->recipe_id      = $recipe_id;
         $this->recipe_name  = $recipe_name;
         $this->description = $description;
         $this->instructions = $instructions;
+        $this->ingredients = $ingredients;
+        $this->image_url = $image_url;
     }
 
     public static function all() {
@@ -20,7 +22,7 @@ class Recipe {
 
 
         foreach($req->fetchAll() as $recipe) {
-            $list[] = new Recipe($recipe['recipe_id'], $recipe['recipe_name'], $recipe['description'], $recipe['instructions']);
+            $list[] = new Recipe($recipe['recipe_id'], $recipe['recipe_name'], $recipe['description'], $recipe['instructions'], $recipe['ingredients']);
         }
 
         return $list;
@@ -38,7 +40,7 @@ class Recipe {
         $sql->execute(array('id' => $id));
         $recipe = $sql->fetch();
 
-        return new Recipe($recipe['recipe_id'], $recipe['recipe_name'], $recipe['description'], $recipe['instructions']);
+        return new Recipe($recipe['recipe_id'], $recipe['recipe_name'], $recipe['description'], $recipe['instructions'], $recipe['ingredients'], $recipe['image_url']);
 
     }
 

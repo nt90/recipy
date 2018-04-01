@@ -11,7 +11,7 @@
                 <?php foreach($ingredients as $ingredient_name) { ?>
                     <div class="col-md-3 text-center">
                         <label class="image-checkbox" title="<?php echo $ingredient_name->name; ?>">
-                            <img class="img-responsive" src="https://i5.walmartimages.ca/images/Large/950/304/6000016950304.jpg?odnBound=460" />
+                            <img class="img-responsive" src="<?php echo $ingredient_name->ingredient_image; ?>" />
                             <input type="checkbox" name="sortRecipe[]" class="filter_ingredients" value="<?php echo $ingredient_name->name; ?>">
                         </label>
                     </div>

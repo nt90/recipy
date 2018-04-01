@@ -4,10 +4,12 @@ class Ingredient {
 // they are public so that we can access them using $post->author directly
     public $ingredient_id;
     public $ingredient_name;
+    public $ingredient_image;
 
-    public function __construct($ingredient_id, $ingredient_name) {
+    public function __construct($ingredient_id, $ingredient_name, $ingredient_image) {
         $this->ingredient_id      = $ingredient_id;
         $this->name    = $ingredient_name;
+        $this->ingredient_image    = $ingredient_image;
     }
 //Temp ingredients
     public static function all() {
@@ -19,7 +21,7 @@ class Ingredient {
 
 // we create a list of Post objects from the database results
         foreach($req->fetchAll() as $ingredient) {
-            $list[] = new Ingredient($ingredient['ingredient_id'], $ingredient['ingredient_name']);
+            $list[] = new Ingredient($ingredient['ingredient_id'], $ingredient['ingredient_name'], $ingredient['ingredient_image']);
         }
 
         return $list;
@@ -42,10 +44,10 @@ class Ingredient {
 
     public static function ListIngredientsAll() {
         $db = Db::getInstance();
-        $req = $db->query('SELECT * FROM ingredients ORDER BY RAND() LIMIT 4');
+        $req = $db->query('SELECT * FROM ingredients ORDER BY RAND() LIMIT 8');
 
         foreach($req->fetchAll() as $ingredient) {
-            $list[] = new Ingredient($ingredient['ingredient_id'], $ingredient['ingredient_name']);
+            $list[] = new Ingredient($ingredient['ingredient_id'], $ingredient['ingredient_name'], $ingredient['ingredient_image']);
         }
 
         return $list;
@@ -62,7 +64,7 @@ class sortIngredient {
         if(isset($sortRecipe))
 
 
-        $query = $db->query("SELECT recipes.recipe_id, recipes.recipe_name, ingredients.ingredient_name, recipes.count_ingredient FROM recipes INNER JOIN ingredient_index ON recipes.recipe_id = ingredient_index.recipe_id INNER JOIN ingredients ON ingredient_index.ingredient_id = ingredients.ingredient_id WHERE ingredients.ingredient_name IN('".implode("','",$sortRecipe)."') ");
+        $query = $db->query("SELECT recipes.recipe_id, recipes.recipe_name, recipes.image_url, ingredients.ingredient_name, recipes.count_ingredient FROM recipes INNER JOIN ingredient_index ON recipes.recipe_id = ingredient_index.recipe_id INNER JOIN ingredients ON ingredient_index.ingredient_id = ingredients.ingredient_id WHERE ingredients.ingredient_name IN('".implode("','",$sortRecipe)."') ");
         return $query->fetchAll();
 
     }
@@ -82,7 +84,6 @@ class sortIngredient {
         foreach ($sort_ingredients as $key => $value){
 
             extract($_POST);
-            print_r($_POST);
             if (isset($sortRecipe)) ;
 
             //We need to count if the sortRecipe array is equal to amount of ingredients the recipe has
@@ -92,7 +93,7 @@ class sortIngredient {
 
                     $filtered_ingredients[$value['recipe_name']]['ingredient_name'] .= ', ' . $value['ingredient_name'];
                 } else {
-                    $filtered_ingredients[$value['recipe_name']] = array('recipe_id' => $value['recipe_id'], 'recipe_name' => $value['recipe_name'], 'ingredient_name' => $value['ingredient_name']);
+                    $filtered_ingredients[$value['recipe_name']] = array('recipe_id' => $value['recipe_id'], 'recipe_name' => $value['recipe_name'], 'ingredient_name' => $value['ingredient_name'],'image_url' => $value['image_url']);
                 }
             //}
         }
